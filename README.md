@@ -17,7 +17,8 @@ The `alpha-mcp` server exposes 4 precision tools for institutional-grade market 
 ```
 finetune_alpha_mcp/
 ├── train.py                           ← Standalone CLI training script
-├── DEPLOYMENT.md                      ← Integration guide for OpenClaw
+├── DEPLOYMENT.md                      ← Basic deployment options
+├── INTEGRATION_PLAN.md                ← Detailed Skill + Micro-script architecture
 ├── tool_schemas.py                    ← Single source of truth for ALL tool definitions
 ├── pyproject.toml                     ← uv project config (dependency management)
 ├── setup_env.sh                       ← One-shot bootstrap for the isolated environment

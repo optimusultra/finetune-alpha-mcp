@@ -122,7 +122,10 @@ def run_eval(model, tokenizer, label: str):
         inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
         with torch.no_grad():
             out = model.generate(
-                **inputs, max_new_tokens=80, pad_token_id=tokenizer.eos_token_id
+                **inputs,
+                max_new_tokens=80,
+                do_sample=False,  # Use greedy decoding for stability
+                pad_token_id=tokenizer.eos_token_id
             )
         resp = tokenizer.decode(out[0], skip_special_tokens=False)
         has_call = "<start_function_call>" in resp
