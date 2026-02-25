@@ -1,9 +1,14 @@
 """
-Alpha-MCP Tool Schemas — Single Source of Truth
-================================================
-All tool definitions live here. When alpha-mcp expands with new tools,
-add them to ALPHA_MCP_TOOLS and the synthetic data generator will automatically
-pick them up on the next training run.
+tool_schemas.py — Alpha-MCP Tool Registry
+==========================================
+Single source of truth for all Alpha-MCP tool definitions.
+
+When alpha-mcp/server.py adds a new tool:
+  1. Add its schema here (in the EXPANSION ZONE below)
+  2. Add gen_<tool_name>() in scripts/generate_data.py
+  3. Add it to the GENERATORS list with a weight
+  4. Add test cases to scripts/verify_model.py
+  5. Run: uv run python3 train.py --regen-data --resume
 """
 
 ALPHA_MCP_TOOLS = [
@@ -80,7 +85,7 @@ ALPHA_MCP_TOOLS = [
         }
     },
     # ──────────────────────────────────────────────────────────────────────────
-    # 🚀 EXPANSION ZONE: Add new alpha-mcp tools below as the server grows.
-    # The data generator reads this list automatically.
+    # 🚀 EXPANSION ZONE — Add new alpha-mcp tools below as server.py grows.
+    # The data generator reads this list automatically at runtime.
     # ──────────────────────────────────────────────────────────────────────────
 ]
