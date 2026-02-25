@@ -1,0 +1,33 @@
+{
+    "version": "1.0",
+    "tools": [
+        {
+            "name": "analyze_ticker_full",
+            "description": "Deep technical analysis of a single stock. Returns Diamond status, Weinstein stage, VCP, RS, institutional flow, RSI, SMAs, support/resistance.",
+            "parameters": {
+                "ticker": "string (required) — stock symbol e.g. 'NVDA'"
+            }
+        },
+        {
+            "name": "run_diamond_screen",
+            "description": "Scan the market or a batch of tickers for Diamond-status setups. Whole-market cache scan if no tickers specified.",
+            "parameters": {
+                "tickers": "string (optional) — comma-separated symbols",
+                "index": "string (optional) — sp500, nasdaq, russell2000, or both (default: both)"
+            }
+        },
+        {
+            "name": "get_market_pulse",
+            "description": "Returns macroeconomic market regime: BULLISH/CAUTION/BEARISH with a 0-100 score based on SPY vs SMA20/50/200.",
+            "parameters": {}
+        },
+        {
+            "name": "run_risk_audit",
+            "description": "Audits portfolio positions for drawdown risk. Alerts if any ticker is down >10% from recent high.",
+            "parameters": {
+                "tickers": "string (required) — comma-separated portfolio symbols"
+            }
+        }
+    ],
+    "_note": "This file is the contract between alpha-mcp and the fine-tuned model. When new tools are added to server.py, update tool_schemas.py AND this file, then regenerate data and retrain."
+}
